@@ -7,6 +7,9 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -160,8 +163,17 @@
   .visible {
     visibility: visible;
   }
+  .absolute {
+    position: absolute;
+  }
   .relative {
     position: relative;
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
   }
   .container {
     width: 100%;
@@ -181,8 +193,70 @@
       max-width: 96rem;
     }
   }
+  .mt-12 {
+    margin-top: calc(var(--spacing) * 12);
+  }
+  .flex {
+    display: flex;
+  }
+  .table {
+    display: table;
+  }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .resize {
+    resize: both;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
 }
 @property --tw-rotate-x {
@@ -205,6 +279,16 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -213,6 +297,8 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-outline-style: solid;
     }
   }
 }
