@@ -1,0 +1,22 @@
+[application]
+tailwind_output = "assets/css/tailwind.css"
+
+[web.app]
+
+# HTML title tag content
+title = "mg-rust-dictplus"
+
+# include `assets` in web platform
+[web.resource]
+
+# Additional CSS style files
+style = []
+
+# Additional JavaScript files
+script = []
+
+[web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
+script = []
