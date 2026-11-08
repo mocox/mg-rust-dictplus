@@ -1,16 +1,6 @@
 use dioxus::prelude::*;
 use crate::mg_routes::Route;
 
-#[component]
-pub fn MainLayout() -> Element {
-    rsx! {
-        div {
-            MainHeader {}
-            Outlet::<Route> {}
-            MainFooter {}
-        }
-    }
-}
 
 #[component]
 pub fn MainHeader() -> Element {

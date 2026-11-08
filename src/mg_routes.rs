@@ -1,7 +1,7 @@
 
 
 pub use dioxus::prelude::*;
-use crate::components::main_components::MainLayout;
+pub use crate::components::main_layout::MainLayout;
 pub use crate::views::radical_view::RadicalView;
 pub use crate::views::hero::Hero;
 
