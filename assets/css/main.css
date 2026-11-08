@@ -1,7 +1,7 @@
 /* App-wide styling */
 body {
-    background-color: #0f1116;
-    color: #ffffff;
+    background-color: black;
+    color: yellow;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -34,5 +34,13 @@ body {
     max-width: 1200px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    padding:6px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
 
 
