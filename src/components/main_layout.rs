@@ -8,7 +8,10 @@ pub fn MainLayout() -> Element {
     rsx! {
         div {
             MainHeader {}
-            Outlet::<Route> {}
+            div {
+                class: "my-12",
+                Outlet::<Route> {}
+            }
             MainFooter {}
         }
     }

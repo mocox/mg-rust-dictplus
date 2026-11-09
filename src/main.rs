@@ -4,6 +4,8 @@ mod components;
 mod views;
 mod mg_routes;
 pub mod library;
+pub mod backend;
+pub mod models;
 
 use constants::{FAVICON, MAIN_CSS, TAILWIND_CSS};
 use dioxus::prelude::*;

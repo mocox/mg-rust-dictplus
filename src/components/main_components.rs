@@ -6,7 +6,7 @@ use crate::mg_routes::Route;
 pub fn MainHeader() -> Element {
     rsx! {
         div {
-            class: "header absolute top-0 w-full bg-white text-black p-3 h-12",
+            class: "header fixed top-0 w-full bg-white text-black p-3 h-12",
             div {
                 class: "flex flex-row justify-start gap-3",
                 Link { to: Route::Home,
@@ -24,7 +24,7 @@ pub fn MainHeader() -> Element {
 pub fn MainFooter() -> Element {
     rsx! {
         div {
-            class: "footer absolute bottom-0 w-full bg-white text-black p-3 h-12",
+            class: "footer fixed bottom-0 w-full bg-white text-black p-3 h-12",
             "Mo footer Rusty"
         }
     }
