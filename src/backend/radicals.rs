@@ -1,4 +1,4 @@
-use dioxus::fullstack::{Json, StatusCode};
+use dioxus::fullstack::{server, Json, StatusCode};
 use dioxus::fullstack::extract::Path;
 use dioxus::fullstack::response::{IntoResponse, Response};
 use rusqlite::Row;
@@ -9,6 +9,7 @@ use crate::models::radical::Radical;
 ///
 /// # Returns
 /// * `Result<Vec<Radical>>` - A Result containing a vector of all radical entries or an error
+
 pub fn get_all_radicals() -> Result<Vec<Radical>, Box<dyn std::error::Error>> {
     let conn = data_connection::connect_to_db()?;
 
@@ -24,7 +25,8 @@ pub fn get_all_radicals() -> Result<Vec<Radical>, Box<dyn std::error::Error>> {
 ///
 /// # Returns
 /// * `Result<Vec<Radical>>` - A Result containing a vector of matching radical entries or an error
-fn get_radicals_by_strokes(strokes: i32) -> Result<Vec<Radical>, Box<dyn std::error::Error>> {
+
+pub fn get_radicals_by_strokes(strokes: i32) -> Result<Vec<Radical>, Box<dyn std::error::Error>> {
     let conn = data_connection::connect_to_db()?;
 
     let mut stmt = conn.prepare("SELECT `Index`, Simplified, Traditional, Pinyin, Strokes FROM AllRadicals WHERE Strokes = ? ORDER BY `Index`")?;
@@ -45,6 +47,7 @@ fn build_rad_from_row(row: &Row) -> Result<Radical, rusqlite::Error> {
     })
 }
 
+/*
 pub async fn get_rads() -> Response {
     match get_all_radicals() {
         Ok(radicals) => Json(radicals).into_response(),
@@ -58,7 +61,7 @@ pub async fn get_rads_by_strokes(Path(strokes): Path<i32>) -> Response {
         Err(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Database error").into_response(),
     }
 }
-
+*/
 #[cfg(test)]
 mod tests {
     use super::{get_all_radicals, get_radicals_by_strokes};
