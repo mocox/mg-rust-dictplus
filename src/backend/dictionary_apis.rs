@@ -1,5 +1,6 @@
-use dioxus::fullstack::{get, ServerFnError};
+use dioxus::prelude::*;
 use crate::models::dictionary_model::DictionaryModel;
+
 
 fn db_error(error: impl std::fmt::Display) -> ServerFnError {
     eprintln!("Failed to load dictionary items: {error}");
@@ -11,6 +12,6 @@ fn db_error(error: impl std::fmt::Display) -> ServerFnError {
 }
 
 #[get("/api/dictionary/by-meaning/:criteria")]
-pub async fn get_items(criteria: &String) -> dioxus::Result<Vec<DictionaryModel>, ServerFnError> {
+pub async fn get_dict_items(criteria: String) -> dioxus::Result<Vec<DictionaryModel>, ServerFnError> {
     crate::backend::dictionary::get_entries(criteria).map_err(db_error)
 }

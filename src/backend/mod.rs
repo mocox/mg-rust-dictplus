@@ -5,4 +5,4 @@ pub mod data_connection;
 pub mod radicals;
 #[cfg(feature = "server")]
 mod dictionary;
-mod dictionary_apis;
+pub(crate) mod dictionary_apis;
