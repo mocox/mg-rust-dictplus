@@ -237,6 +237,9 @@
   .w-24 {
     width: calc(var(--spacing) * 24);
   }
+  .w-28 {
+    width: calc(var(--spacing) * 28);
+  }
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
@@ -266,6 +269,9 @@
   }
   .flex-row {
     flex-direction: row;
+  }
+  .items-center {
+    align-items: center;
   }
   .justify-start {
     justify-content: flex-start;
@@ -306,6 +312,12 @@
   }
   .text-left {
     text-align: left;
+  }
+  .text-wrap {
+    text-wrap: wrap;
+  }
+  .wrap-anywhere {
+    overflow-wrap: anywhere;
   }
   .text-black {
     color: var(--color-black);
