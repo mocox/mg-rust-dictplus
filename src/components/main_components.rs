@@ -14,6 +14,9 @@ pub fn MainHeader() -> Element {
                 },
                     Link { to: Route::RadicalView,
                     span { "🈷️ Radicals! " }
+                },
+                Link { to: Route::DictionaryView,
+                    span { "🈷️ Dictionary! " }
                 }
             }
         }
