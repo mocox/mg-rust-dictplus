@@ -1,29 +1,23 @@
 use dioxus::prelude::*;
 use crate::models::radical::Radical;
 
+fn db_error(error: impl std::fmt::Display) -> ServerFnError {
+    eprintln!("Failed to load radicals: {error}");
+    ServerFnError::ServerError {
+        message: "Failed to load radicals from the database".to_string(),
+        code: 500,
+        details: None,
+    }
+}
 
 #[get("/api/radicals")]
 pub async fn get_radicals() -> Result<Vec<Radical>, ServerFnError> {
-    crate::backend::radicals::get_all_radicals().map_err(|error| {
-        eprintln!("Failed to load radicals: {error}");
-        ServerFnError::ServerError {
-            message: "Failed to load radicals from the database".to_string(),
-            code: 500,
-            details: None,
-        }
-    })
+    crate::backend::radicals::get_all_radicals().map_err(db_error)
 }
 
 #[get("/api/radicals/by-strokes/:strokes")]
 pub async fn get_radicals_by_strokes(strokes: i32) -> Result<Vec<Radical>, ServerFnError> {
-    crate::backend::radicals::get_radicals_by_strokes(strokes).map_err(|error| {
-        eprintln!("Failed to load radicals: {error}");
-        ServerFnError::ServerError {
-            message: "Failed to load radicals from the database".to_string(),
-            code: 500,
-            details: None,
-        }
-    })
+    crate::backend::radicals::get_radicals_by_strokes(strokes).map_err(db_error)
 }
 
 #[cfg(all(test, feature = "server"))]

@@ -1,6 +1,3 @@
-use dioxus::fullstack::{server, Json, StatusCode};
-use dioxus::fullstack::extract::Path;
-use dioxus::fullstack::response::{IntoResponse, Response};
 use rusqlite::Row;
 use crate::backend::data_connection;
 use crate::models::radical::Radical;
@@ -47,21 +44,7 @@ fn build_rad_from_row(row: &Row) -> Result<Radical, rusqlite::Error> {
     })
 }
 
-/*
-pub async fn get_rads() -> Response {
-    match get_all_radicals() {
-        Ok(radicals) => Json(radicals).into_response(),
-        Err(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Database error").into_response(),
-    }
-}
 
-pub async fn get_rads_by_strokes(Path(strokes): Path<i32>) -> Response {
-    match get_radicals_by_strokes(strokes) {
-        Ok(radicals) => Json(radicals).into_response(),
-        Err(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Database error").into_response(),
-    }
-}
-*/
 #[cfg(test)]
 mod tests {
     use super::{get_all_radicals, get_radicals_by_strokes};

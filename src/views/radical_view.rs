@@ -14,7 +14,7 @@ pub fn RadicalView() -> Element {
     rsx! {
         div {
             class: "p-3 mt-12",
-            PageTitle { title: "Radicals" }
+            PageTitle { title: "Radical Explorer" }
             div {
                 class: "p-3",
                 div {
@@ -22,7 +22,7 @@ pub fn RadicalView() -> Element {
                     label {
                         "Radicals Strokes"
                         select {
-                            class: "ml-3",
+                            class: "ml-3 text-black",
                             value: "{selected_strokes}",
                             onchange: move |event| {
                                 if let Ok(strokes) = event.value().parse::<i32>() {
